@@ -9,10 +9,10 @@ ExclusiveArch:	%{java_arches} noarch
 
 Source0:		https://github.com/zippy1978/ghost4j/archive/%{version}/%{name}-%{version}.tar.gz
 
-%if 0%{?fedora} < 40 || (0%{?rhel} && 0%{?rhel} < 10)
-BuildRequires:  maven-local-openjdk11
-%else
+%if 0%{?fedora} >= 40 || 0%{?rhel} >= 10
 BuildRequires:  maven-local
+%else
+BuildRequires:  maven-local-openjdk11
 %endif
 BuildRequires:	ghostscript
 BuildRequires:	mvn(org.apache.maven.plugins:maven-source-plugin)
