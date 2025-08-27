@@ -1,0 +1,52 @@
+From e73d33df9657a64c0b747114452621c174e5640a Mon Sep 17 00:00:00 2001
+From: Luca Magrone <luca@magrone.cc>
+Date: Thu, 28 Aug 2025 00:14:12 +0200
+Subject: [PATCH] Support OpenPDF 3.0.0
+
+Signed-off-by: Luca Magrone <luca@magrone.cc>
+---
+ .../java/org/ghost4j/document/PDFDocument.java     | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/src/main/java/org/ghost4j/document/PDFDocument.java b/src/main/java/org/ghost4j/document/PDFDocument.java
+index 113bb20..1d81b81 100644
+--- a/src/main/java/org/ghost4j/document/PDFDocument.java
++++ b/src/main/java/org/ghost4j/document/PDFDocument.java
+@@ -14,11 +14,11 @@ import java.io.InputStream;
+ 
+ import org.apache.commons.io.IOUtils;
+ 
+-import com.lowagie.text.pdf.PdfContentByte;
+-import com.lowagie.text.pdf.PdfCopy;
+-import com.lowagie.text.pdf.PdfImportedPage;
+-import com.lowagie.text.pdf.PdfReader;
+-import com.lowagie.text.pdf.PdfWriter;
++import org.openpdf.text.pdf.PdfContentByte;
++import org.openpdf.text.pdf.PdfCopy;
++import org.openpdf.text.pdf.PdfImportedPage;
++import org.openpdf.text.pdf.PdfReader;
++import org.openpdf.text.pdf.PdfWriter;
+ 
+ /**
+  * 
+@@ -93,7 +93,7 @@ public class PDFDocument extends AbstractDocument {
+ 
+ 	if (content != null) {
+ 
+-	    com.lowagie.text.Document document = new com.lowagie.text.Document();
++	    org.openpdf.text.Document document = new org.openpdf.text.Document();
+ 
+ 	    try {
+ 
+@@ -141,7 +141,7 @@ public class PDFDocument extends AbstractDocument {
+ 	super.append(document);
+ 
+ 	ByteArrayOutputStream baos = null;
+-	com.lowagie.text.Document mergedDocument = new com.lowagie.text.Document();
++	org.openpdf.text.Document mergedDocument = new org.openpdf.text.Document();
+ 
+ 	try {
+ 
+-- 
+2.51.0
+

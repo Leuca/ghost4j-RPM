@@ -9,6 +9,9 @@ ExclusiveArch:	%{java_arches} noarch
 
 Source0:		https://github.com/zippy1978/ghost4j/archive/%{version}/%{name}-%{version}.tar.gz
 
+# Support OpenPDF 3.0.0
+Patch0:		ghost4j-support-openpdf-3.0.0.patch
+
 %if 0%{?fedora} >= 40 || 0%{?rhel} >= 10
 BuildRequires:  maven-local
 %else
