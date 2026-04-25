@@ -14,6 +14,8 @@ Patch0:		ghost4j-support-openpdf-3.0.0.patch
 
 %if 0%{?fedora} >= 40 || 0%{?rhel} >= 10
 BuildRequires:  maven-local
+%elif 0%{?fedora} > 42 || 0%{?rhel} > 10
+BuildRequires:  maven-local-openjdk25
 %else
 BuildRequires:  maven-local-openjdk11
 %endif
