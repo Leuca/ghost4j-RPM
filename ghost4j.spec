@@ -13,7 +13,11 @@ Source0:		https://github.com/zippy1978/ghost4j/archive/%{version}/%{name}-%{vers
 Patch0:		ghost4j-support-openpdf-3.0.0.patch
 
 %if 0%{?fedora} >= 40 || 0%{?rhel} >= 10
+%if 0%{?fedora} > 42 || 0%{?rhel} > 10
+BuildRequires:  maven-local-openjdk25
+%else
 BuildRequires:  maven-local
+%endif
 %else
 BuildRequires:  maven-local-openjdk11
 %endif
